@@ -1,25 +1,24 @@
 package com.glauber.boletofacil.controller.request;
 
-import com.glauber.boletofacil.domain.entity.BankSlip;
+import com.glauber.boletofacil.model.entity.BankSlip;
 import lombok.Builder;
 import lombok.Data;
 
 import java.math.BigDecimal;
 
 @Data
-@Builder
 public class BankSlipRequest {
     private String name;
     private String email;
     private String cpf;
-    BigDecimal value;
+    private BigDecimal value;
 
-    public static BankSlipRequest from(BankSlip bankSlip) {
-        return BankSlipRequest.builder()
-                .name(bankSlip.getName())
-                .email(bankSlip.getEmail())
-                .cpf(bankSlip.getCpf())
-                .value(bankSlip.getValue())
+    public BankSlip toEntity() {
+        return BankSlip.builder()
+                .name(this.name)
+                .email(this.email)
+                .cpf(this.cpf)
+                .value(this.value)
                 .build();
     }
 }

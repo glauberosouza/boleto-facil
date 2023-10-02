@@ -1,0 +1,26 @@
+kafka:
+  bootstrapServers: 127.0.0.1:9092
+  acksConfig: all
+  retriesConfig: 10
+  schemaRegistryUrl: "http://127.0.0.1:8081"
+  maxPollRecordsConfig: 1
+
+spring:
+  # Database
+  datasource:
+    driver-class-name: org.postgresql.Driver
+    url: jdbc:postgresql://localhost:5432/o8k_academy_db
+    username: postgres
+    password: postgres
+  # JPA properties
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+    database: postgresql
+    database-platform: org.hibernate.dialect.PostgreSQLDialect
+    open-in-view: false
+    generate-ddl: true
+
+server:
+  port: 9090

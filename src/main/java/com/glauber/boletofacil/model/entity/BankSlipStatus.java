@@ -1,4 +1,4 @@
-package com.glauber.boletofacil.domain.entity;
+package com.glauber.boletofacil.model.entity;
 
 public enum BankSlipStatus {
     REQUESTED,
