@@ -1,9 +1,9 @@
 kafka:
-  bootstrapServers: 127.0.0.1:9092
-  acksConfig: all
-  retriesConfig: 10
-  schemaRegistryUrl: "http://127.0.0.1:8081"
-  maxPollRecordsConfig: 1
+  bootstrapServers: 127.0.0.1:9092 # Estou especificando o servidor na qual o user se conectará nesse caso 9092
+  acksConfig: all # A configuração do acks controla os critérios sob os quais as solicitações são consideradas concluídas
+  retriesConfig: 10 # Determina quantas vezes o produtor tentará enviar uma mensagem antes de marcá-la como falhada
+  schemaRegistryUrl: "http://127.0.0.1:8081" # Especifica a URL do registro de esquema Avro.
+  maxPollRecordsConfig: 1 # O número máximo de registros retornados em uma única chamada
 
 spring:
   # Database

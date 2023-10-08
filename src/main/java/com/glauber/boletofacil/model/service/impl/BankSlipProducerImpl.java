@@ -1,6 +1,7 @@
 package com.glauber.boletofacil.model.service.impl;
 
 import com.glauber.boletofacil.avro.bank_slip_record.BankSlipRecord;
+import com.glauber.boletofacil.model.service.BankSlipProducer;
 import com.glauber.boletofacil.model.service.MessagingPort;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.kafka.clients.producer.KafkaProducer;
@@ -12,7 +13,7 @@ import org.springframework.stereotype.Service;
 import java.util.UUID;
 @Slf4j
 @Service
-public class BankSlipProducerImpl implements MessagingPort<BankSlipRecord> {
+public class BankSlipProducerImpl implements MessagingPort<BankSlipRecord>, BankSlipProducer {
     @Autowired
     @Qualifier("messageSender")
     private KafkaProducer<String, BankSlipRecord> producer;

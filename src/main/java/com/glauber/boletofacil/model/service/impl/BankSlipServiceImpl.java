@@ -8,13 +8,14 @@ import com.glauber.boletofacil.model.service.BankSlipService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.time.LocalDate;
+
 @Service
 public class BankSlipServiceImpl implements BankSlipService {
     private final BankSlipRepository repository;
     private final BankSlipProducer producer;
 
     @Autowired
-
     public BankSlipServiceImpl(BankSlipRepository repository, BankSlipProducer producer) {
         this.repository = repository;
         this.producer = producer;
@@ -23,6 +24,8 @@ public class BankSlipServiceImpl implements BankSlipService {
     @Override
     public void save(BankSlip bankSlip) {
         bankSlip.setStatus(BankSlipStatus.REQUESTED);
+        bankSlip.setCreatedAt(LocalDate.now());
+        bankSlip.setSentAt(LocalDate.now());
         repository.save(bankSlip);
         producer.send(bankSlip.toRecord());
     }

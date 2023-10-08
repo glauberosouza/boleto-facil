@@ -19,6 +19,7 @@ public class BankSlip {
     String email;
     String cpf;
     BigDecimal value;
+    @Enumerated(EnumType.STRING)
     BankSlipStatus status;
     @Column(name = "created_at")
     LocalDate createdAt;
